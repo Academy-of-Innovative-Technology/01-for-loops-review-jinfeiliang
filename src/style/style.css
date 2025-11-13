@@ -32,6 +32,10 @@ body{
 	border: 1px dashed var(--chip-border);
 	border-radius: .75rem;
 	padding: .5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	
 }
 
 .result-row.hint::before{
@@ -54,4 +58,9 @@ body{
 	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 	background: #0a0f22; border: 1px solid var(--chip-border);
 	border-radius: .5rem; padding: .75rem;
+}
+
+.Result_Numbers {
+	padding: 8px;
+	border: 2px solid white;
 }
