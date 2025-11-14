@@ -207,31 +207,64 @@ function Custom_Loop(Target_Id, Start, End, Step, Filter) {
   Target_Result.classList.remove("hint");
   let index = 0;
 
-  if (Start <= End) {
-    for (i = Start; i <= End; i = i + Step) {
-      console.log(i);
-      let HTML = document.createElement("span");
-      HTML.textContent = i;
-      HTML.classList.add("chip");
-      Target_Result.appendChild(HTML);
+  for (
+    i = Start;
+    Start <= End ? i <= End : i >= End;
+    Start <= End ? (i += Step) : (i -= Step)
+  ) {
+    console.log(i);
+    console.log(Filter);
+    switch (Filter) {
+      case "odd":
+        if (i % 2 != 0) {
+          let HTML = document.createElement("span");
+          HTML.textContent = i;
+          HTML.classList.add("chip");
+          Target_Result.appendChild(HTML);
 
-      setTimeout(() => {
-        HTML.classList.add("show");
-      }, index * 100);
-      index++;
-    }
-  } else if (Start > End) {
-    for (i = Start; i >= End; i = i - Step) {
-      console.log(i);
-      let HTML = document.createElement("span");
-      HTML.textContent = i;
-      HTML.classList.add("chip");
-      Target_Result.appendChild(HTML);
+          setTimeout(() => {
+            HTML.classList.add("show");
+          }, index * 100);
+          index++;
+        }
+        break;
+      case "even":
+        if (i % 2 == 0) {
+          let HTML = document.createElement("span");
+          HTML.textContent = i;
+          HTML.classList.add("chip");
+          Target_Result.appendChild(HTML);
 
-      setTimeout(() => {
-        HTML.classList.add("show");
-      }, index * 100);
-      index++;
+          setTimeout(() => {
+            HTML.classList.add("show");
+          }, index * 100);
+          index++;
+        }
+        break;
+      case "mul5":
+        if (i % 5 == 0) {
+          let HTML = document.createElement("span");
+          HTML.textContent = i;
+          HTML.classList.add("chip");
+          Target_Result.appendChild(HTML);
+
+          setTimeout(() => {
+            HTML.classList.add("show");
+          }, index * 100);
+          index++;
+        }
+        break;
+      default:
+        let HTML = document.createElement("span");
+        HTML.textContent = i;
+        HTML.classList.add("chip");
+        Target_Result.appendChild(HTML);
+
+        setTimeout(() => {
+          HTML.classList.add("show");
+        }, index * 100);
+        index++;
+        break;
     }
   }
 }
