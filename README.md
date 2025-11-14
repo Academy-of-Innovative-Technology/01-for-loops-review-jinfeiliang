@@ -6,7 +6,7 @@ This interactive activity includes several predefined examples and a **Playgroun
 
 ---
 
-## 🚀 Overview
+## 🚀 Overview 
 
 This lab uses **HTML** and **JavaScript** to demonstrate how counting loops behave with different start, end and step values.  
 Each card on the page represents a unique loop pattern. When the **Run** button is clicked, results stream dynamically to the screen.  
